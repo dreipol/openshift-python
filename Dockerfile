@@ -36,9 +36,9 @@ RUN mkdir -p /app
 WORKDIR /app
 
 # copy & install backend dependencies
-COPY requirements.txt /app
+ONBUILD COPY requirements.txt /app
 #RUN pip install --proxy=$HTTP_PROXY -r requirements.txt
-RUN pip install -r requirements.txt
+ONBUILD RUN pip install -r requirements.txt
 
 # copy  & install frontend dependencies
 ONBUILD COPY package.json package-lock.json /app/
