@@ -1,9 +1,6 @@
 FROM python:3.6.8-jessie
 MAINTAINER dreipol GmbH <dev@dreipol.ch>
 
-ARG PROJECT_NAME
-ARG HTTP_PROXY
-
 # setup NPM and node versions
 ENV NODE_VERSION=10.14.1 \
     NPM_VERSION=6.1.0 \
@@ -34,6 +31,9 @@ RUN /bin/bash -c "source $NVM_DIR/nvm.sh && \
 # create app directory
 RUN mkdir -p /app
 WORKDIR /app
+
+ONBUILD ARG PROJECT_NAME
+ONBUILD ARG HTTP_PROXY
 
 # copy & install backend dependencies
 ONBUILD COPY requirements.txt /app
