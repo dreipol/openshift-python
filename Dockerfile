@@ -1,4 +1,4 @@
-FROM python:3.6.7-jessie
+FROM python:3.6.8-jessie
 MAINTAINER dreipol GmbH <dev@dreipol.ch>
 
 ARG PROJECT_NAME
